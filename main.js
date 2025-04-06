@@ -29,11 +29,11 @@ $(document).ready(function () {
             const estado = resposta.uf;
             const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
             $('#endereco').val(endereco)
-
-            setTimeout(function () {
-                $(botao).find('i').removeClass('d-none');
-                $(botao).find('span').addClass('d-none');
-            }, 4000);
         })
+        setTimeout(function () {
+            $(botao).find('i').removeClass('d-none');
+            $(botao).find('span').addClass('d-none');
+        }, 4000);
     })
+
 })
