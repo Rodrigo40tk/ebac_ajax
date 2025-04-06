@@ -1,28 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn-buscar-cep').addEventListener('click', function(){
-        const xhttp = new XMLHttpRequest();
-        const cep = document.getElementById('cep').value;
-        const endPoint =`https://viacep.com.br/ws/${cep}/json`;
+//  document.addEventListener('DOMContentLoaded', function() {
+//  document.getElementById('btn-buscar-cep').addEventListener('click', function(){
+//  const xhttp = new XMLHttpRequest();
+//  const cep = document.getElementById('cep').value;
+//  const endPoint =`https://viacep.com.br/ws/${cep}/json`;
 
-        xhttp.open('GET', endPoint);
-        xhttp.send(); 
+//  xhttp.open('GET', endPoint);
+//  xhttp.send(); 
 
-        // https://viacep.com.br/ws/123123123/json
-    })
-})
+//  https://viacep.com.br/ws/123123123/json
+// })
+//})
 
 $(document).ready(function () {
     $('#cep').mask('00000-000');
 
-
     $('#btn-buscar-cep').click(function () {
         const cep = $('#cep').val();
-        const endPoint = `https://viacep.com.br/ws/${cep}/json`;
+        const endpoint = `https://viacep.com.br/ws/${cep}/json`;
+
         const botao = $(this);
         $(botao).find('i').addClass('d-none');
         $(botao).find('span').removeClass('d-none');
 
-        $.ajax(endPoint).done(function (resposta) {
+        $.ajax(endpoint).done(function (resposta) {
             const logradouro = resposta.logradouro;
             const bairro = resposta.bairro;
             const cidade = resposta.localidade;
@@ -33,7 +33,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 $(botao).find('i').removeClass('d-none');
                 $(botao).find('span').addClass('d-none');
-            }, 3000);
+            }, 4000);
         })
     })
 })
